@@ -1,4 +1,4 @@
-// Crea este archivo: MyContentVM.kt
+
 package com.example.watchfinder.viewmodels
 
 import MyContentUiState
@@ -22,13 +22,13 @@ class MyContentVM @Inject constructor(
     val uiState: StateFlow<MyContentUiState> = _uiState.asStateFlow()
 
     fun loadFavoriteMovies() {
-        if (_uiState.value.isLoading) return // Evita cargas múltiples
+        if (_uiState.value.isLoading) return 
 
         viewModelScope.launch {
-            _uiState.update { it.copy(isLoading = true, error = null, currentView = MyContentView.MOVIES) } // Muestra carga y cambia vista
+            _uiState.update { it.copy(isLoading = true, error = null, currentView = MyContentView.MOVIES) } 
             try {
-                // Llama al método del repositorio que llama a apiService.getFavMovies()
-                // Asegúrate que tu repositorio devuelve List<Movie>
+                
+                
                 val movies = userRepository.getFavMovies()
                 _uiState.update {
                     it.copy(
@@ -41,7 +41,7 @@ class MyContentVM @Inject constructor(
                     it.copy(
                         isLoading = false,
                         error = "Error al cargar películas favoritas: ${e.message}",
-                        currentView = MyContentView.BUTTONS // Vuelve a los botones si hay error
+                        currentView = MyContentView.BUTTONS 
                     )
                 }
                 e.printStackTrace()
@@ -55,8 +55,8 @@ class MyContentVM @Inject constructor(
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null, currentView = MyContentView.SERIES) }
             try {
-                // Llama al método del repositorio que llama a apiService.getFavSeries()
-                // Asegúrate que tu repositorio devuelve List<Series>
+                
+                
                 val series = userRepository.getFavSeries()
                 _uiState.update {
                     it.copy(
@@ -69,7 +69,7 @@ class MyContentVM @Inject constructor(
                     it.copy(
                         isLoading = false,
                         error = "Error al cargar series favoritas: ${e.message}",
-                        currentView = MyContentView.BUTTONS // Vuelve a los botones si hay error
+                        currentView = MyContentView.BUTTONS 
                     )
                 }
                 e.printStackTrace()
@@ -77,15 +77,15 @@ class MyContentVM @Inject constructor(
         }
     }
 
-    // Función para volver a la vista de botones desde la lista
+    
     fun showButtonsView() {
         _uiState.update {
             it.copy(
                 currentView = MyContentView.BUTTONS,
-                error = null, // Limpia errores al volver
-                // Opcional: Limpiar listas al volver? Depende de si quieres recargar siempre
-                // favoriteMovies = emptyList(),
-                // favoriteSeries = emptyList()
+                error = null, 
+                
+                
+                
             )
         }
     }

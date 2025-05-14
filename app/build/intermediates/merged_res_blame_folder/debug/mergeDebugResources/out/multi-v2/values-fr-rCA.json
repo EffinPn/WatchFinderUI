@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.watchfinder.app-mergeDebugResources-63:/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "com.example.watchfinder.app-mergeDebugResources-66:/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Wired\\.gradle\\caches\\8.10.2\\transforms\\362752216d430dbf7f89a72d6649ffb2\\transformed\\media3-ui-1.6.1\\res\\values-fr-rCA\\values-fr-rCA.xml",

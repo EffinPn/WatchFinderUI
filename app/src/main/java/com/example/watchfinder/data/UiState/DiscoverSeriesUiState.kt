@@ -7,6 +7,6 @@ data class DiscoverSeriesUiState(
     val isLoading: Boolean = false,
     val error: String? = null,
     val finished: Boolean = false,
-    val favoriteSeriesIds: Set<String> = emptySet(), // IDs de películas favoritas
+    val favoriteSeriesIds: Set<String> = emptySet(),
     val seenSeriesIds: Set<String> = emptySet()
 )

@@ -312,6 +312,8 @@ drawable ic_call_answer_video
 drawable ic_call_answer_video_low
 drawable ic_call_decline
 drawable ic_call_decline_low
+drawable ic_default_avatar
+drawable ic_error_placeholder
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable lionsgate
@@ -394,6 +396,7 @@ id bottom
 id center
 id chronometer
 id coil3_request_manager
+id coil_request_manager
 id compose_view_saveable_id_tag
 id consume_window_insets_tag
 id dialog_button

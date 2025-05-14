@@ -1,5 +1,8 @@
 package com.example.watchfinder.data.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Series(
     val _id: String,
     val title: String,
@@ -18,7 +21,7 @@ data class Series(
     val cast: List<String>?,
     val rated: String?,
     val awards: String?,
-    val url: String?,
+    val url: String? = null,
     val poster: String?,
-    val providers: List<String>?,
+    val providers: List<String>?
 )

@@ -5,7 +5,7 @@ import com.example.watchfinder.R
 
 
 @Composable
-fun providerToLogo(providerName: String): Int? { // Devuelve el ID del drawable o null
+fun providerToLogo(providerName: String): Int? {
 
     return when (providerName) {
         "Netflix", "Netflix Standard with Ads" -> R.drawable.netflix

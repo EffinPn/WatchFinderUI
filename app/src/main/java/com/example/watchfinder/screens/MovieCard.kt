@@ -5,19 +5,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -31,11 +24,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.watchfinder.R
 import com.example.watchfinder.data.dto.MovieCard
-import com.example.watchfinder.ui.theme.WatchFinderTheme
 
 @Composable
 fun MovieCard(
@@ -51,38 +42,35 @@ fun MovieCard(
     Card(
         modifier = Modifier
             .fillMaxSize(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp) // Sombra suave
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Box( // Box para apilar el "vídeo" y la información
-            modifier = Modifier.fillMaxSize() // El Box ocupa todo el espacio de la Card
+        Box(
+            modifier = Modifier.fillMaxSize()
         ) {
 
-            // --- Capa 1: Placeholder para el Vídeo (Detrás) ---
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.Red)
                     .clip(CardDefaults.shape)
             ) {
-                val videoUrl = movie.Url // o series.Url
+                val videoUrl = movie.Url
                 if (!videoUrl.isNullOrBlank()) {
                     VideoPlayer(
                         videoUrl = videoUrl,
                         playWhenReady = playWhenReady
-                    ) // Llama a tu composable de vídeo
+                    )
                 } else {
-                    // Opcional: Muestra un placeholder si no hay URL
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(Color.Gray), // Un placeholder diferente
+                            .background(Color.Gray),
                         contentAlignment = Alignment.Center
                     ) {
                         Text("Trailer no disponible")
                     }
                 }
             }
-            // Esta es la caja donde va los datos.
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
@@ -99,18 +87,19 @@ fun MovieCard(
                     .padding(10.dp)
             ) {
 
-                Text(
-                    "Placeholder para bandera de país",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = Color.DarkGray
-                )
+                movie.Country?.let {
+                    Text(
+                        it,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.DarkGray
+                    )
+                }
                 Text(
                     movie.Title,
                     style = MaterialTheme.typography.headlineMedium,
                     color = Color.White
                 )
 
-                //Aquí he metido un Row para poder separar Runtime de Idiomas
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -120,7 +109,6 @@ fun MovieCard(
                         style = MaterialTheme.typography.bodySmall,
                         color = Color.DarkGray
                     )
-                    //Este espaciador es lo que hace que Idiomas vaya a la derecha, es un espaciador horizontal.
                     Spacer(modifier = Modifier.weight(1f))
                     val languages = movie.Languages
                     val languagesToShow = languages?.takeIf { it.isNotEmpty() }?.let { langs ->
@@ -137,7 +125,6 @@ fun MovieCard(
                     )
                 }
 
-                //Espaciador antes de la sinopsis
                 Spacer(modifier = Modifier.height(20.dp))
                 Text(
                     movie.Plot ?: "No disponible",
@@ -145,7 +132,6 @@ fun MovieCard(
                     color = Color.White
                 )
 
-                //Otro más antes del resto de datos
                 Spacer(modifier = Modifier.height(5.dp))
 
                 Text(
@@ -210,7 +196,7 @@ fun MovieCard(
 
         Box(
             modifier = Modifier
-                .align(Alignment.TopEnd) // Alineado arriba a la derecha
+                .align(Alignment.TopEnd)
                 .padding(8.dp)
         ) {
             Row(
@@ -219,7 +205,6 @@ fun MovieCard(
                     .padding(5.dp)
             ) {
                 if (showActions) {
-                    // Icono Favorito (Corazón) - Arriba Izquierda
                     IconButton(
                         onClick = onFavoriteClick,
                     ) {
@@ -227,17 +212,16 @@ fun MovieCard(
                             modifier = Modifier.padding(4.dp),
                             painter = if (isFavorite) painterResource(id = R.drawable.heartfill) else painterResource(
                                 id = R.drawable.heart
-                            ), // Cambia a FavoriteBorder si gestionas estado
+                            ),
                             contentDescription = "Añadir a Favoritos",
                             tint = if (isFavorite) {
-                                Color.Red // Favorito (contorno) -> Blanco
+                                Color.Red
                             } else {
-                                Color.White   // No favorito (relleno) -> Rojo
+                                Color.White
                             }
                         )
                     }
 
-                    // Icono Visto (Ojo) - Arriba Derecha (junto a Plataformas?)
                     IconButton(
                         onClick = onSeenClick,
                         modifier = Modifier
@@ -249,27 +233,17 @@ fun MovieCard(
                                 id = R.drawable.eye
                             ),
                             contentDescription = "Marcar como Visto",
-                            tint = Color.White // O un color que contraste
+                            tint = Color.White
                         )
                     }
                 }
-                Spacer(modifier = Modifier.weight(1f)) // Este empuja a la derecha
+                Spacer(modifier = Modifier.weight(1f))
                 val plat = movie.Providers
-                // --- MODIFICA ESTA COLUMN ---
                 Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
-                    // ---- Verifica que entras aquí ----
-                    println("Componiendo Column de Logos. Providers: $plat")
-                    // ---------------------------------
                     if (plat != null) {
                         plat.forEach { providerName ->
                             val logoResId = providerToLogo(providerName)
-                            // ---- Verifica el mapeo ----
-                            println("Provider: '$providerName' -> Logo ID: $logoResId")
-                            // -------------------------
                             if (logoResId != null) {
-                                // --- Verifica si se compone la imagen ---
-                                println("Intentando componer Image para $providerName")
-                                // ---------------------------------------
                                 Image(
                                     painter = painterResource(id = logoResId),
                                     contentDescription = providerName,
@@ -278,10 +252,8 @@ fun MovieCard(
                             }
                         }
                     }
-                } // --- FIN COLUMN MODIFICADA ---
-
+                }
             }
-
         }
     }
 }

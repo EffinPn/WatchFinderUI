@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.watchfinder.app-mergeDebugResources-63:/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "com.example.watchfinder.app-mergeDebugResources-66:/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Wired\\.gradle\\caches\\8.10.2\\transforms\\82a7445ef4af6b6c2f6ada427551dec0\\transformed\\core-1.15.0\\res\\values-zh-rHK\\values-zh-rHK.xml",

@@ -20,7 +20,6 @@ import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_compo
 import hilt_aggregated_deps._com_example_watchfinder_MainActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_example_watchfinder_WatchFinderApp_GeneratedInjector;
 import hilt_aggregated_deps._com_example_watchfinder_di_AppModule;
-import hilt_aggregated_deps._com_example_watchfinder_di_AppModule_UserModule;
 import hilt_aggregated_deps._com_example_watchfinder_di_CoilModule;
 import hilt_aggregated_deps._com_example_watchfinder_di_NetworkModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_DetailsVM_HiltModules_BindsModule;
@@ -29,12 +28,18 @@ import hilt_aggregated_deps._com_example_watchfinder_viewmodels_DiscoverMoviesVM
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_DiscoverMoviesVM_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_DiscoverSeriesVM_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_DiscoverSeriesVM_HiltModules_KeyModule;
+import hilt_aggregated_deps._com_example_watchfinder_viewmodels_ForgotPasswordVM_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_example_watchfinder_viewmodels_ForgotPasswordVM_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_LoginVM_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_LoginVM_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_MyContentVM_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_MyContentVM_HiltModules_KeyModule;
+import hilt_aggregated_deps._com_example_watchfinder_viewmodels_ProfileVM_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_example_watchfinder_viewmodels_ProfileVM_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_RegisterVM_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_RegisterVM_HiltModules_KeyModule;
+import hilt_aggregated_deps._com_example_watchfinder_viewmodels_ResetPasswordVM_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_example_watchfinder_viewmodels_ResetPasswordVM_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_SearchVM_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_example_watchfinder_viewmodels_SearchVM_HiltModules_KeyModule;
 import hilt_aggregated_deps._dagger_hilt_android_flags_FragmentGetContextFix_FragmentGetContextFixEntryPoint;
@@ -80,7 +85,6 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _com_example_watchfinder_MainActivity_GeneratedInjector.class,
         _com_example_watchfinder_WatchFinderApp_GeneratedInjector.class,
         _com_example_watchfinder_di_AppModule.class,
-        _com_example_watchfinder_di_AppModule_UserModule.class,
         _com_example_watchfinder_di_CoilModule.class,
         _com_example_watchfinder_di_NetworkModule.class,
         _com_example_watchfinder_viewmodels_DetailsVM_HiltModules_BindsModule.class,
@@ -89,12 +93,18 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _com_example_watchfinder_viewmodels_DiscoverMoviesVM_HiltModules_KeyModule.class,
         _com_example_watchfinder_viewmodels_DiscoverSeriesVM_HiltModules_BindsModule.class,
         _com_example_watchfinder_viewmodels_DiscoverSeriesVM_HiltModules_KeyModule.class,
+        _com_example_watchfinder_viewmodels_ForgotPasswordVM_HiltModules_BindsModule.class,
+        _com_example_watchfinder_viewmodels_ForgotPasswordVM_HiltModules_KeyModule.class,
         _com_example_watchfinder_viewmodels_LoginVM_HiltModules_BindsModule.class,
         _com_example_watchfinder_viewmodels_LoginVM_HiltModules_KeyModule.class,
         _com_example_watchfinder_viewmodels_MyContentVM_HiltModules_BindsModule.class,
         _com_example_watchfinder_viewmodels_MyContentVM_HiltModules_KeyModule.class,
+        _com_example_watchfinder_viewmodels_ProfileVM_HiltModules_BindsModule.class,
+        _com_example_watchfinder_viewmodels_ProfileVM_HiltModules_KeyModule.class,
         _com_example_watchfinder_viewmodels_RegisterVM_HiltModules_BindsModule.class,
         _com_example_watchfinder_viewmodels_RegisterVM_HiltModules_KeyModule.class,
+        _com_example_watchfinder_viewmodels_ResetPasswordVM_HiltModules_BindsModule.class,
+        _com_example_watchfinder_viewmodels_ResetPasswordVM_HiltModules_KeyModule.class,
         _com_example_watchfinder_viewmodels_SearchVM_HiltModules_BindsModule.class,
         _com_example_watchfinder_viewmodels_SearchVM_HiltModules_KeyModule.class,
         _dagger_hilt_android_flags_FragmentGetContextFix_FragmentGetContextFixEntryPoint.class,

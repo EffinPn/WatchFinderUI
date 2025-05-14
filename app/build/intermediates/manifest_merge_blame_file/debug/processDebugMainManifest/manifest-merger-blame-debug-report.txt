@@ -9,8 +9,8 @@
 9        android:targetSdkVersion="35" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:5:5-67
-11-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:5:22-64
+11-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:5:5-67
+11-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 12-->[androidx.media3:media3-common:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\6c222a36c270aeba00409cedca5977b0\transformed\media3-common-1.6.1\AndroidManifest.xml:22:5-79
 12-->[androidx.media3:media3-common:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\6c222a36c270aeba00409cedca5977b0\transformed\media3-common-1.6.1\AndroidManifest.xml:22:22-76
@@ -43,180 +43,203 @@
 25    </queries>
 26
 27    <application
-27-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:7:5-30:19
+27-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:7:5-39:19
 28        android:name="com.example.watchfinder.WatchFinderApp"
-28-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:8:9-39
+28-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:8:9-39
 29        android:allowBackup="true"
-29-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:10:9-35
+29-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:10:9-35
 30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 30-->[androidx.core:core:1.15.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\82a7445ef4af6b6c2f6ada427551dec0\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
 31        android:dataExtractionRules="@xml/data_extraction_rules"
-31-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:11:9-65
+31-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:11:9-65
 32        android:debuggable="true"
 33        android:extractNativeLibs="false"
 34        android:fullBackupContent="@xml/backup_rules"
-34-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:12:9-54
+34-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:12:9-54
 35        android:icon="@mipmap/ic_launcher"
-35-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:13:9-43
+35-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:13:9-43
 36        android:label="@string/app_name"
-36-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:14:9-41
+36-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:14:9-41
 37        android:roundIcon="@mipmap/ic_launcher_round"
-37-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:15:9-54
+37-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:15:9-54
 38        android:supportsRtl="true"
-38-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:16:9-35
+38-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:16:9-35
 39        android:testOnly="true"
 40        android:theme="@style/Theme.WatchFinder"
-40-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:17:9-49
+40-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:17:9-49
 41        android:usesCleartextTraffic="true" >
-41-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:9:9-44
+41-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:9:9-44
 42        <activity
-42-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:19:9-29:20
+42-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:19:9-38:20
 43            android:name="com.example.watchfinder.MainActivity"
-43-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:20:13-41
+43-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:20:13-41
 44            android:exported="true"
-44-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:21:13-36
+44-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:21:13-36
 45            android:label="@string/app_name"
-45-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:22:13-45
+45-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:22:13-45
 46            android:theme="@style/Theme.WatchFinder" >
-46-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:23:13-53
+46-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:23:13-53
 47            <intent-filter>
-47-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:24:13-28:29
+47-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:24:13-28:29
 48                <action android:name="android.intent.action.MAIN" />
-48-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:25:17-69
-48-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:25:25-66
+48-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:25:17-69
+48-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:25:25-66
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:27:17-77
-50-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:27:27-74
+50-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:27:17-77
+50-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:27:27-74
 51            </intent-filter>
-52        </activity>
-53        <activity
-53-->[androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\59ddb1f8013ffecd92b59ef7cf701637\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
-54            android:name="androidx.compose.ui.tooling.PreviewActivity"
-54-->[androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\59ddb1f8013ffecd92b59ef7cf701637\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
-55            android:exported="true" />
-55-->[androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\59ddb1f8013ffecd92b59ef7cf701637\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
-56
-57        <provider
-57-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-58            android:name="androidx.startup.InitializationProvider"
-58-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-59            android:authorities="com.example.watchfinder.androidx-startup"
-59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-60            android:exported="false" >
-60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-61            <meta-data
-61-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-62                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-62-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-63                android:value="androidx.startup" />
-63-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-64            <meta-data
-64-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f34751d2066710205a02c43396123ade\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
-65                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-65-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f34751d2066710205a02c43396123ade\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
-66                android:value="androidx.startup" />
-66-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f34751d2066710205a02c43396123ade\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
-67            <meta-data
-67-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:29:13-31:52
-68                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-68-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:30:17-85
-69                android:value="androidx.startup" />
-69-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:31:17-49
-70        </provider>
-71
-72        <activity
-72-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:27:9-34:20
-73            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
-73-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:28:13-99
-74            android:exported="true"
-74-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:29:13-36
-75            android:theme="@style/WhiteBackgroundTheme" >
-75-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:30:13-56
-76            <intent-filter android:priority="-100" >
-76-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
-76-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
-77                <category android:name="android.intent.category.LAUNCHER" />
-77-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:27:17-77
-77-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:27:27-74
-78            </intent-filter>
-79        </activity>
-80        <activity
-80-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:35:9-42:20
-81            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
-81-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:36:13-95
-82            android:exported="true"
-82-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:37:13-36
-83            android:theme="@style/WhiteBackgroundTheme" >
-83-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:38:13-56
-84            <intent-filter android:priority="-100" >
-84-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
-84-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
-85                <category android:name="android.intent.category.LAUNCHER" />
-85-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:27:17-77
-85-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:27:27-74
-86            </intent-filter>
-87        </activity>
-88        <activity
-88-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:43:9-50:20
-89            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
-89-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:44:13-103
-90            android:exported="true"
-90-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:45:13-36
-91            android:theme="@style/WhiteBackgroundDialogTheme" >
-91-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:46:13-62
-92            <intent-filter android:priority="-100" >
-92-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
-92-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
-93                <category android:name="android.intent.category.LAUNCHER" />
-93-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:27:17-77
-93-->F:\UNIR\2CURSO\AndStudio\WatchFinderUI\app\src\main\AndroidManifest.xml:27:27-74
-94            </intent-filter>
-95        </activity>
-96        <activity
-96-->[androidx.compose.ui:ui-test-manifest:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\958696ca475bf6b68f412588285ec337\transformed\ui-test-manifest-1.7.6\AndroidManifest.xml:23:9-25:39
-97            android:name="androidx.activity.ComponentActivity"
-97-->[androidx.compose.ui:ui-test-manifest:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\958696ca475bf6b68f412588285ec337\transformed\ui-test-manifest-1.7.6\AndroidManifest.xml:24:13-63
-98            android:exported="true" />
-98-->[androidx.compose.ui:ui-test-manifest:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\958696ca475bf6b68f412588285ec337\transformed\ui-test-manifest-1.7.6\AndroidManifest.xml:25:13-36
-99
-100        <receiver
-100-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:34:9-52:20
-101            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-101-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:35:13-76
-102            android:directBootAware="false"
-102-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:36:13-44
-103            android:enabled="true"
-103-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:37:13-35
-104            android:exported="true"
-104-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:38:13-36
-105            android:permission="android.permission.DUMP" >
-105-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:39:13-57
-106            <intent-filter>
-106-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:40:13-42:29
-107                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-107-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:41:17-91
-107-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:41:25-88
-108            </intent-filter>
-109            <intent-filter>
-109-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:43:13-45:29
-110                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-110-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:44:17-85
-110-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:44:25-82
-111            </intent-filter>
-112            <intent-filter>
-112-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:46:13-48:29
-113                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-113-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:47:17-88
-113-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:47:25-85
-114            </intent-filter>
-115            <intent-filter>
-115-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:49:13-51:29
-116                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-116-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:50:17-95
-116-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:50:25-92
-117            </intent-filter>
-118        </receiver>
-119    </application>
-120
-121</manifest>
+52            <intent-filter android:autoVerify="false" > <!-- para no verificar link -->
+52-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:29:13-37:29
+52-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:29:28-54
+53                <action android:name="android.intent.action.VIEW" />
+53-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:30:17-69
+53-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:30:25-66
+54
+55                <category android:name="android.intent.category.DEFAULT" />
+55-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:31:17-76
+55-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:31:27-73
+56                <category android:name="android.intent.category.BROWSABLE" />
+56-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:32:17-78
+56-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:32:27-75
+57
+58                <data
+58-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:33:17-36:60
+59                    android:host="watchfinderapp.com"
+59-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:35:21-54
+60                    android:pathPrefix="/reset-password"
+60-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:36:21-57
+61                    android:scheme="https" />
+61-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:34:21-43
+62            </intent-filter>
+63        </activity>
+64        <activity
+64-->[androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\59ddb1f8013ffecd92b59ef7cf701637\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+65            android:name="androidx.compose.ui.tooling.PreviewActivity"
+65-->[androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\59ddb1f8013ffecd92b59ef7cf701637\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+66            android:exported="true" />
+66-->[androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\59ddb1f8013ffecd92b59ef7cf701637\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+67
+68        <provider
+68-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+69            android:name="androidx.startup.InitializationProvider"
+69-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+70            android:authorities="com.example.watchfinder.androidx-startup"
+70-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+71            android:exported="false" >
+71-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+72            <meta-data
+72-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+73                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+73-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+74                android:value="androidx.startup" />
+74-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f499c500955ef93003f0c437e974940e\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+75            <meta-data
+75-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f34751d2066710205a02c43396123ade\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+76                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+76-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f34751d2066710205a02c43396123ade\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+77                android:value="androidx.startup" />
+77-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Wired\.gradle\caches\8.10.2\transforms\f34751d2066710205a02c43396123ade\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+78            <meta-data
+78-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:29:13-31:52
+79                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+79-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:30:17-85
+80                android:value="androidx.startup" />
+80-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:31:17-49
+81        </provider>
+82
+83        <activity
+83-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:27:9-34:20
+84            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+84-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:28:13-99
+85            android:exported="true"
+85-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:29:13-36
+86            android:theme="@style/WhiteBackgroundTheme" >
+86-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:30:13-56
+87            <intent-filter android:priority="-100" >
+87-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
+87-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
+88                <category android:name="android.intent.category.LAUNCHER" />
+88-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:27:17-77
+88-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:27:27-74
+89            </intent-filter>
+90        </activity>
+91        <activity
+91-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:35:9-42:20
+92            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+92-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:36:13-95
+93            android:exported="true"
+93-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:37:13-36
+94            android:theme="@style/WhiteBackgroundTheme" >
+94-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:38:13-56
+95            <intent-filter android:priority="-100" >
+95-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
+95-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
+96                <category android:name="android.intent.category.LAUNCHER" />
+96-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:27:17-77
+96-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:27:27-74
+97            </intent-filter>
+98        </activity>
+99        <activity
+99-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:43:9-50:20
+100            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+100-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:44:13-103
+101            android:exported="true"
+101-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:45:13-36
+102            android:theme="@style/WhiteBackgroundDialogTheme" >
+102-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:46:13-62
+103            <intent-filter android:priority="-100" >
+103-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
+103-->[androidx.test:core:1.6.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\9b70cff9b108c71d9190b9b2740f4f3f\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
+104                <category android:name="android.intent.category.LAUNCHER" />
+104-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:27:17-77
+104-->F:\UNIR\Proyecto\Manu\WatchFinderUI\app\src\main\AndroidManifest.xml:27:27-74
+105            </intent-filter>
+106        </activity>
+107        <activity
+107-->[androidx.compose.ui:ui-test-manifest:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\958696ca475bf6b68f412588285ec337\transformed\ui-test-manifest-1.7.6\AndroidManifest.xml:23:9-25:39
+108            android:name="androidx.activity.ComponentActivity"
+108-->[androidx.compose.ui:ui-test-manifest:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\958696ca475bf6b68f412588285ec337\transformed\ui-test-manifest-1.7.6\AndroidManifest.xml:24:13-63
+109            android:exported="true" />
+109-->[androidx.compose.ui:ui-test-manifest:1.7.6] C:\Users\Wired\.gradle\caches\8.10.2\transforms\958696ca475bf6b68f412588285ec337\transformed\ui-test-manifest-1.7.6\AndroidManifest.xml:25:13-36
+110
+111        <receiver
+111-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:34:9-52:20
+112            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+112-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:35:13-76
+113            android:directBootAware="false"
+113-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:36:13-44
+114            android:enabled="true"
+114-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:37:13-35
+115            android:exported="true"
+115-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:38:13-36
+116            android:permission="android.permission.DUMP" >
+116-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:39:13-57
+117            <intent-filter>
+117-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:40:13-42:29
+118                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+118-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:41:17-91
+118-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:41:25-88
+119            </intent-filter>
+120            <intent-filter>
+120-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:43:13-45:29
+121                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+121-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:44:17-85
+121-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:44:25-82
+122            </intent-filter>
+123            <intent-filter>
+123-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:46:13-48:29
+124                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+124-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:47:17-88
+124-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:47:25-85
+125            </intent-filter>
+126            <intent-filter>
+126-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:49:13-51:29
+127                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+127-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:50:17-95
+127-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\Wired\.gradle\caches\8.10.2\transforms\a2872b9ed3d13ff074edd6001dcd126a\transformed\profileinstaller-1.4.1\AndroidManifest.xml:50:25-92
+128            </intent-filter>
+129        </receiver>
+130    </application>
+131
+132</manifest>

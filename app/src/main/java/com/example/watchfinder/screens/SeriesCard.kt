@@ -13,10 +13,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -29,12 +25,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.watchfinder.R
-import com.example.watchfinder.data.dto.MovieCard
 import com.example.watchfinder.data.dto.SeriesCard
-import com.example.watchfinder.ui.theme.WatchFinderTheme
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -51,39 +44,34 @@ fun SeriesCard(series: SeriesCard,
             .fillMaxSize(),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp) // Sombra suave
     ) {
-        Box( // Box para apilar el "vídeo" y la información
-            modifier = Modifier.fillMaxSize() // El Box ocupa todo el espacio de la Card
+        Box(
+            modifier = Modifier.fillMaxSize()
         ) {
 
-            // --- Capa 1: Placeholder para el Vídeo (Detrás) ---
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.Red)
             ) {
-                val videoUrl = series.Url // o series.Url
+                val videoUrl = series.Url
                 if (!videoUrl.isNullOrBlank()) {
-                    VideoPlayer(videoUrl = videoUrl, playWhenReady = playWhenReady) // Llama a tu composable de vídeo
+                    VideoPlayer(videoUrl = videoUrl, playWhenReady = playWhenReady)
                 } else {
-                    // Opcional: Muestra un placeholder si no hay URL
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(Color.Gray), // Un placeholder diferente
+                            .background(Color.Gray),
                         contentAlignment = Alignment.Center
                     ) {
                         Text("Trailer no disponible")
                     }
                 }
             }
-            // Esta es la caja donde va los datos.
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .fillMaxWidth()
-
                     .background(
-
                         Brush.verticalGradient(
                             0.0f to Color.Black.copy(alpha = 0.0f),
                             0.3f to Color.Black.copy(alpha = 0.75f),
@@ -93,16 +81,17 @@ fun SeriesCard(series: SeriesCard,
                     )
                     .padding(10.dp)
             ) {
-
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(
-                        "Placeholder para bandera de país",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = Color.DarkGray
-                    )
+                    series.Country?.let {
+                        Text(
+                            it,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.DarkGray
+                        )
+                    }
 
                     Spacer(modifier = Modifier.weight(1f))
 
@@ -119,7 +108,6 @@ fun SeriesCard(series: SeriesCard,
                     color = Color.White
                 )
 
-                //Aquí he metido un Row para poder separar Runtime de Idiomas
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -129,7 +117,7 @@ fun SeriesCard(series: SeriesCard,
                         style = MaterialTheme.typography.bodySmall,
                         color = Color.DarkGray
                     )
-                    //Este espaciador es lo que hace que Idiomas vaya a la derecha, es un espaciador horizontal.
+
                     Spacer(modifier = Modifier.weight(1f))
                     val languages = series.Languages
                     val languagesToShow = languages?.takeIf { it.isNotEmpty() }?.let { langs ->
@@ -181,7 +169,6 @@ fun SeriesCard(series: SeriesCard,
                     color = Color.White
                 )
 
-                //Otro más antes del resto de datos
                 Spacer(modifier = Modifier.height(5.dp))
                 Text(
                     "${series.Seasons} temporadas" ?: "No disponible",
@@ -231,7 +218,6 @@ fun SeriesCard(series: SeriesCard,
                     if (genres != null) {
                         genres.forEach { genre ->
                             val genreResId = GenretoIcon(genre)
-                            // -------------------------
                             if (genreResId != null) {
                                 Image(
                                     painter = painterResource(id = genreResId),
@@ -253,10 +239,9 @@ fun SeriesCard(series: SeriesCard,
 
             }
 
-            // --- Elemento 11: Plataformas (podría ir aquí o en el Box del vídeo) ---
             Box(
                 modifier = Modifier
-                    .align(Alignment.TopEnd) // Alineado arriba a la derecha
+                    .align(Alignment.TopEnd)
                     .padding(8.dp)
             ) {
                 Row(modifier = Modifier.fillMaxWidth()) {
@@ -264,21 +249,20 @@ fun SeriesCard(series: SeriesCard,
                         IconButton(
                             onClick = onFavoriteClick,
                             modifier = Modifier
-                                .padding(1.dp) // Espaciado
+                                .padding(1.dp)
                         ) {
                             Icon(
                                 modifier = Modifier.padding(4.dp),
                                 painter = if (isFavorite) painterResource(id = R.drawable.heartfill) else painterResource(id = R.drawable.heart),
                                 contentDescription = "Añadir a Favoritos",
                                 tint = if (isFavorite) {
-                                    Color.Red // Favorito (contorno) -> Blanco
+                                    Color.Red
                                 } else {
-                                    Color.White   // No favorito (relleno) -> Rojo
+                                    Color.White
                                 }
                             )
                         }
 
-                        // Icono Visto (Ojo) - Arriba Derecha (junto a Plataformas?)
                         IconButton(
                             onClick = onSeenClick,
                             modifier = Modifier
@@ -287,27 +271,21 @@ fun SeriesCard(series: SeriesCard,
                                 modifier = Modifier.padding(4.dp),
                                 painter = if (isSeen) painterResource(id = R.drawable.eyeno) else painterResource(id = R.drawable.eye),
                                 contentDescription = "Marcar como Visto",
-                                tint = Color.White // O un color que contraste
+                                tint = Color.White
                             )
                         }
                     }
                     Spacer(modifier = Modifier.weight(1f))
                     val plat = series.Providers
-                    // --- MODIFICA ESTA COLUMN ---
+
                     Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
-                        // ---- Verifica que entras aquí ----
-                        println("Componiendo Column de Logos. Providers: $plat")
-                        // ---------------------------------
+
                         if (plat != null) {
                             plat.forEach { providerName ->
                                 val logoResId = providerToLogo(providerName)
-                                // ---- Verifica el mapeo ----
-                                println("Provider: '$providerName' -> Logo ID: $logoResId")
-                                // -------------------------
+
                                 if (logoResId != null) {
-                                    // --- Verifica si se compone la imagen ---
-                                    println("Intentando componer Image para $providerName")
-                                    // ---------------------------------------
+
                                     Image(
                                         painter = painterResource(id = logoResId),
                                         contentDescription = providerName,
@@ -319,7 +297,6 @@ fun SeriesCard(series: SeriesCard,
                     }
                 }
             }
-
         }
     }
 }

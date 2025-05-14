@@ -13,7 +13,7 @@ data class SeriesCard(
     val Plot: String,
     val Runtime: String? = null,
     val Ratings: List<String>? = null,
-    val Genres: List<String>? = null, // Usa listas y tipos adecuados
+    val Genres: List<String>? = null,
     val Languages: List<String>? = null,
     val Cast: List<String>? = null,
     val Rated: String?,

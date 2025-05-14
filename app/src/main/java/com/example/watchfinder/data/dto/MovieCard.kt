@@ -5,7 +5,7 @@ data class MovieCard(
     val _id: String,
     val Title: String,
     val Plot: String,
-    val Genres: List<String>? = null, // Usa listas y tipos adecuados
+    val Genres: List<String>? = null,
     val Runtime: String? = null,
     val Director: String? = null,
     val Cast: List<String>? = null,

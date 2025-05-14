@@ -2,7 +2,6 @@ package com.example.watchfinder.repository
 
 import com.example.watchfinder.api.ApiService
 import com.example.watchfinder.data.Utils
-import com.example.watchfinder.data.dto.MovieCard
 import com.example.watchfinder.data.dto.SeriesCard
 import com.example.watchfinder.data.prefs.TokenManager
 import javax.inject.Inject
@@ -21,15 +20,11 @@ class SeriesRepository@Inject constructor(
         apiCards.take(5).forEach { seriesModel ->
             println("Title: ${seriesModel.title}, Poster (from Model): ${seriesModel.poster}")
         }
-        println("--------------------------------------------")
         val seriesCard: List<SeriesCard> = apiCards.map{
             series -> utils.seriesToCard(series)
         }
-        println("--- Repository: Mapped Series DTOs ---")
-        apiCards.take(5).forEach { seriesCard -> // Itera sobre la lista de DTOs resultante
-            println("Title: ${seriesCard.title}, Poster (from DTO): ${seriesCard.poster}") // Accede al campo Poster del DTO
+        apiCards.take(5).forEach { seriesCard ->
         }
-        println("---------------------------------------")
         return seriesCard
     }
 
@@ -52,9 +47,7 @@ class SeriesRepository@Inject constructor(
     }
 
     suspend fun getSeriesRecommendations(): List<SeriesCard> {
-        // Llama al nuevo endpoint del ApiService que devuelve modelos Series
         val recommendedSeries = apiService.getSeriesRecommendations()
-        // Convierte los modelos Series a SeriesCard usando tu Utils
         return recommendedSeries.map { series -> utils.seriesToCard(series) }
     }
 }

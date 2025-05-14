@@ -1,15 +1,14 @@
-// WF/watchfinderAndroid/screens/Search.kt
 package com.example.watchfinder.screens
 
 import android.util.Log
-import androidx.compose.foundation.clickable // Necesario para SearchResultItem si se queda aquí
-import androidx.compose.foundation.layout.* // Mantenemos layouts
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
-import androidx.compose.material3.* // Mantenemos Material components
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect // Importar LaunchedEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -17,9 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil3.compose.AsyncImage // Necesario para SearchResultItem si se queda aquí
-import com.example.watchfinder.data.dto.MovieCard // Necesario para SearchResultItem si se queda aquí
-import com.example.watchfinder.data.dto.SeriesCard // Necesario para SearchResultItem si se queda aquí
+import coil3.compose.AsyncImage
+import com.example.watchfinder.data.dto.MovieCard
+import com.example.watchfinder.data.dto.SeriesCard
 import com.example.watchfinder.viewmodels.SearchVM
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -32,15 +31,14 @@ fun Search(
 
     val uiState by viewModel.uiState.collectAsState()
 
-    // --- NUEVO: LaunchedEffect para observar el trigger de navegación ---
     LaunchedEffect(uiState.triggerNavigationToResults) {
         if (uiState.triggerNavigationToResults) {
-            // Llama a la lambda de navegación pasando los resultados
+
             onNavigateToResults(
                 uiState.navigationResultsMovies,
                 uiState.navigationResultsSeries
             )
-            // Resetea el flag en el ViewModel DESPUÉS de llamar a la navegación
+
             viewModel.onResultsNavigated()
         }
     }
@@ -54,7 +52,6 @@ fun Search(
         Text("Búsqueda", style = MaterialTheme.typography.headlineLarge)
         Spacer(Modifier.height(16.dp))
 
-        // --- Campo de Texto (sin cambios) ---
         TextField(
             value = uiState.userInput,
             onValueChange = viewModel::onUserInputChange,
@@ -65,14 +62,12 @@ fun Search(
         )
         Spacer(Modifier.height(16.dp))
 
-        // --- Selector de Tipo (sin cambios) ---
         SearchTypeSelectorComponent(
             selectedOption = uiState.selectedSearchType,
             onOptionSelected = viewModel::onSearchTypeChange
         )
         Spacer(Modifier.height(16.dp))
 
-        // --- FilterChips de Géneros (sin cambios) ---
         Text(
             "Seleccionar Género:",
             style = MaterialTheme.typography.titleMedium,
@@ -106,7 +101,6 @@ fun Search(
         }
         Spacer(Modifier.height(24.dp))
 
-        // --- Botones Buscar/Reset (sin cambios) ---
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
@@ -116,7 +110,6 @@ fun Search(
                 enabled = !uiState.isLoading
             ) {
                 if (uiState.isLoading) {
-                    // Podrías usar un CircularProgressIndicator más pequeño aquí
                     CircularProgressIndicator(
                         modifier = Modifier.size(24.dp),
                         strokeWidth = 2.dp
@@ -132,30 +125,20 @@ fun Search(
         }
         Spacer(Modifier.height(16.dp))
 
-        // --- Mostrar Errores o Indicador de "No Resultados" (sin cambios) ---
-        // (Se muestra aquí si la búsqueda no devuelve NADA)
         if (uiState.searchError != null) {
             Text(
                 text = uiState.searchError!!,
                 color = MaterialTheme.colorScheme.error,
                 modifier = Modifier.padding(vertical = 8.dp)
             )
-        } else if (uiState.noResultsFound && !uiState.isLoading) { // Añadido !uiState.isLoading
+        } else if (uiState.noResultsFound && !uiState.isLoading) {
             Text(
                 text = "No se encontraron resultados.",
                 modifier = Modifier.padding(vertical = 8.dp)
             )
         }
-
-        // --- Cuadrícula de Resultados (QUITADA) ---
-        // val combinedResults = uiState.searchResultsMovies + uiState.searchResultsSeries // <-- QUITAR
-        // if (combinedResults.isNotEmpty() && !uiState.isLoading) { ... LazyVerticalGrid ... } // <-- QUITAR TODO ESTE BLOQUE
     }
 }
-
-// --- SearchResultItem y SearchTypeSelectorComponent (sin cambios) ---
-// Puedes mantenerlos aquí si SearchResultsScreen los importa, o moverlos a un archivo común.
-// Por simplicidad, los dejamos aquí por ahora, pero SearchResultsScreen necesitará importarlos.
 
 @Composable
 fun SearchResultItem(
@@ -163,8 +146,7 @@ fun SearchResultItem(
     posterPath: String?,
     onClick: () -> Unit
 ) {
-    // ... (código sin cambios) ...
-    println("SearchResultItem -> Title: $title, Poster URL: $posterPath")
+
     Card(
         modifier = Modifier
             .clickable(onClick = onClick),
@@ -199,7 +181,6 @@ fun SearchTypeSelectorComponent(
     selectedOption: String,
     onOptionSelected: (String) -> Unit
 ) {
-    // ... (código sin cambios) ...
     val options = listOf("Movies", "Series", "Both")
 
     Column(modifier = Modifier.fillMaxWidth()) {

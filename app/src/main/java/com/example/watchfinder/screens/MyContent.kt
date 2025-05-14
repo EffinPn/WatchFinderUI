@@ -5,7 +5,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack // Importa el icono correcto
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -16,34 +16,30 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.watchfinder.data.dto.MovieCard
 import com.example.watchfinder.data.dto.SeriesCard
-import com.example.watchfinder.data.model.Movie // Importa modelos completos
-import com.example.watchfinder.data.model.Series // Importa modelos completos
 import com.example.watchfinder.viewmodels.MyContentVM
 
 @Composable
 fun MyContent(
     viewModel: MyContentVM = hiltViewModel(),
-    // Necesitas recibir la lambda para navegar a detalles
     onNavigateToDetail: (itemType: String, itemId: String) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    // Decide qué vista mostrar según el estado
     when (uiState.currentView) {
         MyContentView.BUTTONS -> {
             MyContentButtonView(
                 onMoviesClick = viewModel::loadFavoriteMovies,
                 onSeriesClick = viewModel::loadFavoriteSeries,
-                error = uiState.error // Pasa el error si existe
+                error = uiState.error
             )
         }
         MyContentView.MOVIES -> {
             MyContentListView(
                 isLoading = uiState.isLoading,
                 error = uiState.error,
-                items = uiState.favoriteMovies, // Pasa la lista de películas
-                itemType = "movie", // Indica el tipo
-                onNavigateBack = viewModel::showButtonsView, // Lambda para volver
+                items = uiState.favoriteMovies,
+                itemType = "movie",
+                onNavigateBack = viewModel::showButtonsView,
                 onNavigateToDetail = onNavigateToDetail
             )
         }
@@ -51,9 +47,9 @@ fun MyContent(
             MyContentListView(
                 isLoading = uiState.isLoading,
                 error = uiState.error,
-                items = uiState.favoriteSeries, // Pasa la lista de series
-                itemType = "series", // Indica el tipo
-                onNavigateBack = viewModel::showButtonsView, // Lambda para volver
+                items = uiState.favoriteSeries,
+                itemType = "series",
+                onNavigateBack = viewModel::showButtonsView,
                 onNavigateToDetail = onNavigateToDetail
             )
         }
@@ -75,7 +71,6 @@ fun MyContentButtonView(
     ) {
         Spacer(Modifier.height(20.dp))
 
-        // Muestra error si existe
         if (error != null) {
             Text(
                 text = error,
@@ -90,22 +85,19 @@ fun MyContentButtonView(
         Button(modifier = Modifier.fillMaxWidth().padding(10.dp).height(50.dp), onClick = onSeriesClick) {
             Text("Series Favoritas")
         }
-        // Puedes añadir más botones para otras listas (Vistas, Pendientes, etc.)
     }
 }
 
-// Composable genérico para mostrar la lista (reutiliza la lógica)
 @Composable
 fun <T> MyContentListView(
     isLoading: Boolean,
     error: String?,
     items: List<T>,
-    itemType: String, // "movie" o "series"
+    itemType: String,
     onNavigateBack: () -> Unit,
     onNavigateToDetail: (itemType: String, itemId: String) -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
-        // Botón para volver a la selección
         IconButton(onClick = onNavigateBack) {
             Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Volver")
         }
@@ -113,7 +105,7 @@ fun <T> MyContentListView(
         when {
             isLoading -> {
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Progress() // Reusa tu composable Progress
+                    Progress()
                 }
             }
             error != null -> {
@@ -127,7 +119,6 @@ fun <T> MyContentListView(
                 }
             }
             else -> {
-                // Reutiliza LazyVerticalGrid y SearchResultItem de Search.kt
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(minSize = 120.dp),
                     modifier = Modifier.fillMaxSize(),
@@ -136,8 +127,6 @@ fun <T> MyContentListView(
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
                     items(items) { item ->
-                        // Necesitamos extraer título, poster y ID de forma genérica
-                        // O adaptar SearchResultItem o crear uno nuevo
                         val title: String
                         val posterPath: String?
                         val id: String
@@ -146,19 +135,18 @@ fun <T> MyContentListView(
                             is MovieCard -> {
                                 title = item.Title
                                 posterPath = item.Poster
-                                id = item._id ?: "" // Asegúrate que _id no es null o maneja el caso
+                                id = item._id ?: ""
                             }
                             is SeriesCard -> {
                                 title = item.Title
                                 posterPath = item.Poster
-                                id = item._id ?: "" // Asegúrate que _id no es null o maneja el caso
+                                id = item._id ?: ""
                             }
-                            else -> return@items // No debería pasar si T es Movie o Series
+                            else -> return@items
                         }
 
                         if (id.isNotEmpty()) {
-                            // Reutiliza el item de resultado de búsqueda de Search.kt
-                            SearchResultItem( // Asegúrate que este Composable existe y es accesible
+                            SearchResultItem(
                                 title = title,
                                 posterPath = posterPath,
                                 onClick = { onNavigateToDetail(itemType, id) }

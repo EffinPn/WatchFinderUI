@@ -45,9 +45,7 @@ class MovieRepository @Inject constructor(
     }
 
     suspend fun getMovieRecommendations(): List<MovieCard> {
-        // Llama al nuevo endpoint del ApiService que devuelve modelos Movie
         val recommendedMovies = apiService.getMovieRecommendations()
-        // Convierte los modelos Movie a MovieCard usando tu Utils
         return recommendedMovies.map { movie -> utils.movieToCard(movie) }
     }
 }

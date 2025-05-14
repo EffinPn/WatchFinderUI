@@ -1,19 +1,29 @@
 package com.example.watchfinder.api
 
+import com.example.watchfinder.data.dto.ChangePasswordRequest
+import com.example.watchfinder.data.dto.ForgotPasswordRequest
+import com.example.watchfinder.data.dto.ImageUrlResponse
 import com.example.watchfinder.data.dto.Item
 import com.example.watchfinder.data.dto.LoginRequest
 import com.example.watchfinder.data.dto.LoginResponse
-import com.example.watchfinder.data.dto.MovieCard
+import com.example.watchfinder.data.dto.ProfileImageUpdateResponse
+import com.example.watchfinder.data.dto.RegisterRequest
+import com.example.watchfinder.data.dto.ResetPasswordRequest
+import com.example.watchfinder.data.dto.UserData
 import com.example.watchfinder.data.model.Movie
 import com.example.watchfinder.data.model.Series
-import com.example.watchfinder.data.dto.RegisterRequest
-import com.example.watchfinder.data.dto.SeriesCard
 import com.example.watchfinder.data.model.User
+import okhttp3.MultipartBody
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.Multipart
+import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Part
 import retrofit2.http.Query
 
 interface ApiService {
@@ -59,9 +69,32 @@ interface ApiService {
     suspend fun getSeenSeries(): List<Series>
     @GET("/users/getseenmovies")
     suspend fun getSeenMovies(): List<Movie>
-    @GET("/users/recommendmovies") // Asegúrate que el path coincida con tu backend
+    @GET("/users/recommendmovies")
     suspend fun getMovieRecommendations(): List<Movie>
-    @GET("/users/recommendseries") // Asegúrate que el path coincida con tu backend
+    @GET("/users/recommendseries")
     suspend fun getSeriesRecommendations(): List<Series>
 
+    @POST("auth/forgot-password")
+    suspend fun sendPasswordResetEmail(@Body request: ForgotPasswordRequest): Response<Unit>
+
+    @POST("auth/reset-password")
+    suspend fun resetPassword(@Body request: ResetPasswordRequest): Response<Unit>
+
+    @Multipart
+    @PATCH("/users/profile/image")
+    suspend fun uploadProfileImage(@Part image: MultipartBody.Part): Response<ProfileImageUpdateResponse>
+
+    @PUT("/users/profile")
+    suspend fun updateProfile(@Body updatedUserData: UserData): Response<UserData>
+
+    @GET("users/profile/image-url")
+    suspend fun getImageUrl(): Response<ImageUrlResponse>
+
+    @POST("auth/change-password")
+    suspend fun changePassword(@Body request: ChangePasswordRequest): Response<Unit>
+
+    @DELETE("/users/delete")
+    suspend fun deleteAccount(): Response<Unit>
 }
+
+

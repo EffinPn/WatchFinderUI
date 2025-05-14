@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.watchfinder.app-mergeDebugResources-63:/values-ml/values-ml.xml",
+            "outputFile": "com.example.watchfinder.app-mergeDebugResources-66:/values-ml/values-ml.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Wired\\.gradle\\caches\\8.10.2\\transforms\\82a7445ef4af6b6c2f6ada427551dec0\\transformed\\core-1.15.0\\res\\values-ml\\values-ml.xml",

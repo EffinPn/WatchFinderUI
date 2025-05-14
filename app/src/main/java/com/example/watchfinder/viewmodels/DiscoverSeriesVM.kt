@@ -27,7 +27,7 @@ class DiscoverSeriesVM @Inject constructor(
     val uiState: StateFlow<DiscoverSeriesUiState> = _uiState.asStateFlow()
 
     private var fetchJob: Job? = null
-    private val RELOAD_THRESHOLD = 3 // Cargar más cuando queden menos de 3 tarjetas
+    private val RELOAD_THRESHOLD = 3 
 
     init {
         loadInitialData()

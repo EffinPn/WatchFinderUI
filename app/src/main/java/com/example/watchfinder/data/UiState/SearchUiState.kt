@@ -4,11 +4,11 @@ import com.example.watchfinder.data.dto.MovieCard
 import com.example.watchfinder.data.dto.SeriesCard
 
 data class SearchUiState(
-    // --- Estados de los Controles ---
+
     val userInput: String = "",
     val selectedSearchType: String = "Both",
-    val availableGenres: List<String> = listOf("Todos"), // Lista inicial, se cargará del VM
-    val selectedGenre: Set<String> = setOf("Todos"), // Género seleccionado (FilterChip), empieza con "Todos"
+    val availableGenres: List<String> = listOf("Todos"),
+    val selectedGenre: Set<String> = setOf("Todos"),
 
     val isLoading: Boolean = false,
     val triggerNavigationToResults: Boolean = false,

@@ -1,7 +1,6 @@
 package com.example.watchfinder.screens
 
-import android.app.DatePickerDialog // Importa DatePickerDialog
-import android.widget.DatePicker // Importa DatePicker
+import android.app.DatePickerDialog
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -14,10 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.watchfinder.ui.theme.WatchFinderTheme
 import com.example.watchfinder.viewmodels.RegisterVM
 import java.util.Calendar
 import java.util.Locale
@@ -25,25 +22,24 @@ import java.util.Locale
 @Composable
 fun Register(
     viewModel: RegisterVM = hiltViewModel(),
-    onRegisterSuccess: () -> Unit, // Lambda para navegar (probablemente a Login)
-    onNavigateToLogin: () -> Unit // Lambda para volver a la pantalla de Login
+    onRegisterSuccess: () -> Unit,
+    onNavigateToLogin: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    // Efecto para navegar cuando el registro sea exitoso
     LaunchedEffect(uiState.registrationSuccess) {
         if (uiState.registrationSuccess) {
-            onRegisterSuccess() // Navega (ej. a Login)
-            viewModel.onRegistrationNavigated() // Resetea el estado
+            onRegisterSuccess()
+            viewModel.onRegistrationNavigated()
         }
     }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 20.dp, vertical = 10.dp) // Ajusta padding
-            .imePadding(), // Añade padding para el teclado
-        verticalArrangement = Arrangement.Center // Centra verticalmente
+            .padding(horizontal = 20.dp, vertical = 10.dp)
+            .imePadding(),
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
             "Registro",
@@ -52,7 +48,6 @@ fun Register(
         )
         Spacer(modifier = Modifier.height(20.dp))
 
-        // Campos de Texto (usando OutlinedTextField para consistencia)
         OutlinedTextField(
             value = uiState.nameInput,
             onValueChange = viewModel::onNameChange,
@@ -76,7 +71,7 @@ fun Register(
                     || uiState.registrationError?.contains(
                 "usuario",
                 ignoreCase = true
-            ) == true // Si el backend devuelve error de usuario
+            ) == true
         )
 
         OutlinedTextField(
@@ -131,18 +126,16 @@ fun Register(
             isError = uiState.registrationError?.contains(
                 "contraseña",
                 ignoreCase = true
-            ) == true // Marca si el error es de contraseña
+            ) == true
         )
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // Selector de Fecha de Nacimiento
         AgeChoose(
-            selectedDate = uiState.birthDateInput, // Muestra la fecha guardada en el state
-            onDateSelected = viewModel::onBirthDateChange // Llama al VM cuando se selecciona
+            selectedDate = uiState.birthDateInput,
+            onDateSelected = viewModel::onBirthDateChange
         )
 
-        // Muestra el error general si existe
         if (uiState.registrationError != null) {
             Text(
                 text = uiState.registrationError!!,
@@ -153,11 +146,9 @@ fun Register(
                     .align(Alignment.CenterHorizontally)
             )
         } else {
-            Spacer(modifier = Modifier.height(24.dp)) // Espacio para consistencia
+            Spacer(modifier = Modifier.height(24.dp))
         }
 
-
-        // Botón Registrar
         Button(
             onClick = viewModel::attemptRegistration,
             modifier = Modifier
@@ -173,13 +164,12 @@ fun Register(
             }
         }
 
-        // Enlace para volver a Login
         Text(
             text = "¿Ya tienes cuenta? Inicia sesión",
             modifier = Modifier
                 .padding(top = 10.dp)
                 .align(Alignment.CenterHorizontally)
-                .clickable { onNavigateToLogin() }, // Llama a la lambda para navegar a Login
+                .clickable { onNavigateToLogin() },
             color = MaterialTheme.colorScheme.primary
         )
     }
@@ -187,28 +177,23 @@ fun Register(
 
 @Composable
 fun AgeChoose(
-    selectedDate: String, // La fecha actual seleccionada (formato DD/MM/YYYY o YYYY-MM-DD)
-    onDateSelected: (String) -> Unit // Función para notificar la fecha seleccionada
+    selectedDate: String,
+    onDateSelected: (String) -> Unit
 ) {
     val context = LocalContext.current
     val calendar = Calendar.getInstance()
-
-    // Intentar parsear la fecha seleccionada para inicializar el diálogo
-    // Si no hay fecha seleccionada, usa la fecha actual
     var initialYear = calendar.get(Calendar.YEAR)
     var initialMonth = calendar.get(Calendar.MONTH)
     var initialDay = calendar.get(Calendar.DAY_OF_MONTH)
 
     if (selectedDate.isNotEmpty()) {
         try {
-            // Asume formato DD/MM/YYYY, ajusta si usas otro
             val parts = selectedDate.split("/")
             if (parts.size == 3) {
                 initialDay = parts[0].toInt()
-                initialMonth = parts[1].toInt() - 1 // Calendar.MONTH es 0-indexed
+                initialMonth = parts[1].toInt() - 1
                 initialYear = parts[2].toInt()
             } else {
-                // Intenta formato YYYY-MM-DD
                 val partsIso = selectedDate.split("-")
                 if (partsIso.size == 3) {
                     initialYear = partsIso[0].toInt()
@@ -217,34 +202,27 @@ fun AgeChoose(
                 }
             }
         } catch (e: Exception) {
-            // Error al parsear, usa la fecha actual
             println("Error parsing date $selectedDate: ${e.message}")
         }
     }
 
 
-    val datePickerDialog = remember { // Evita recrear el diálogo en cada recomposición
+    val datePickerDialog = remember {
         DatePickerDialog(
             context,
             { _, year, month, dayOfMonth ->
-                // Formatea la fecha consistentemente (DD/MM/YYYY o YYYY-MM-DD)
-                // Ejemplo: DD/MM/YYYY
                 val formattedDate =
                     String.format(Locale.getDefault(), "%02d/%02d/%d", dayOfMonth, month + 1, year)
-                // Ejemplo: YYYY-MM-DD (mejor para enviar a API)
-                // val formattedDate = String.format(Locale.getDefault(), "%d-%02d-%02d", year, month + 1, dayOfMonth)
-                onDateSelected(formattedDate) // Notifica la fecha seleccionada
+                onDateSelected(formattedDate)
             },
             initialYear,
             initialMonth,
             initialDay
         ).apply {
-            // Opcional: poner límite máximo (hoy) para que no elijan fechas futuras
             datePicker.maxDate = calendar.timeInMillis
         }
     }
 
-    // Botón que muestra la fecha seleccionada y abre el diálogo
     OutlinedButton(
         onClick = { datePickerDialog.show() },
         modifier = Modifier

@@ -2,7 +2,6 @@ package com.example.watchfinder.screens
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -42,12 +41,12 @@ fun DetailScreen(
     val limit = screenWidth
     val exit = (screenWidth.value * 6f)
     val scope = rememberCoroutineScope()
-    // Llama al ViewModel para que cargue los detalles basado en type/id
+
     LaunchedEffect(itemType, itemId) {
         viewModel.loadDetails(itemType, itemId)
     }
 
-    val uiState by viewModel.uiState.collectAsState() // Asume que DetailViewModel tiene un uiState
+    val uiState by viewModel.uiState.collectAsState()
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         when {
@@ -57,179 +56,142 @@ fun DetailScreen(
 
             uiState.error != null -> {
                 Text("Error: ${uiState.error}")
-                // Podrías añadir un botón para reintentar o volver
             }
 
             uiState.movieDetail != null -> {
                 Box(
-                    //Aquí se modifica el movimiento, se redondea nuestra variable del eje X (offsetX), y también podemos definir el eje Y.
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight()
                         .fillMaxSize()
                         .offset { IntOffset(offSetX.value.roundToInt(), 0) }
-                        //Con esto modificamos los ejes de la animación, por ejemplo rotación sobre eje Z, o escalado.
                         .graphicsLayer {
                             rotationZ = offSetX.value / 30f
 
-                            //Esto ajusta el eje sobre el que la tarjeta gira
                             transformOrigin = TransformOrigin(0.5f, 0.5f)
-                            //Esto hace que se vuelva más pequeña según sale de la pantalla, tenemos que ver si queremos dejarlo.
-                            //Ponemos esta fórmula para que se adapte a la anchura del terminal en el que esté, screenWidth siempre será un valor cambiante dependiendo del dispositivo.
-                            //Y OffSt value también cambia porque nos está indicando la posición de la tarjeta.
+
                             scaleX = 1f - (abs(offSetX.value) / (screenWidth.value * 6))
                             scaleY = 1f - (abs(offSetX.value) / (screenWidth.value * 6))
-
-                            // Podríamos hasta hacer que rote sobre sí misma, pero creo que quedaba mal. Puedes descomentar, correr la app y probar, a ver qué opinas.
-                            // rotationY = (offSetX.value / screenWidth.value) * 10f
                         }
-                        //esto permite escuchar el comportamiento del pointer, que en este caso son los gestos del usuario, y dentro definimos cómo actuará en consecuencia
                         .pointerInput(itemId) {
-                            //Esto detecta movimientos horizontales
-                            detectHorizontalDragGestures(
-                                //Accion al empezar
-                                onDragStart = {},
-                                //Accion al terminar, aquí va la lógica si la carta se va o se queda
-// Dentro de .pointerInput(itemId) { detectHorizontalDragGestures( ... ) }
 
+                            detectHorizontalDragGestures(
+                                onDragStart = {},
                                 onDragEnd = {
                                     val final = offSetX.value
-                                    // Comprobar si hemos pasado el límite (en cualquier dirección)
                                     if (abs(final) > limit.value) {
-                                        // Sí, hemos deslizado lo suficiente. Animamos hacia fuera y luego navegamos atrás.
                                         val target =
-                                            if (final > 0) exit else -exit // Hacia dónde animar (fuera de pantalla)
+                                            if (final > 0) exit else -exit
 
                                         scope.launch {
                                             offSetX.animateTo(
                                                 targetValue = target,
-                                                animationSpec = tween(durationMillis = 300) // Duración animación salida
-                                            ) { // Este bloque se ejecuta al COMPLETAR la animación
-                                                onNavigateBack() // Llama a la función para volver atrás
+                                                animationSpec = tween(durationMillis = 300)
+                                            ) {
+                                                onNavigateBack()
                                             }
-                                            // No es necesario hacer snapTo(0f) aquí porque ya hemos navegado fuera
                                         }
                                     } else {
-                                        // No, no hemos deslizado lo suficiente. Volvemos al centro.
                                         scope.launch {
                                             offSetX.animateTo(
                                                 targetValue = 0f,
-                                                animationSpec = tween(durationMillis = 300) // Duración animación retorno
+                                                animationSpec = tween(durationMillis = 300)
                                             )
                                         }
                                     }
                                 }
-// El resto de detectHorizontalDragGestures (onDragStart y el bloque lambda final) se quedan como estaban.
+
                             ) { change, dragAmount ->
                                 println("Dragging, OffsetX: ${offSetX.value}")
-                                //Esto es para que no reaccione a otros gestos
                                 change.consume()
-                                //Esto hace que siga al dedo
                                 scope.launch {
                                     offSetX.snapTo(offSetX.value + dragAmount)
                                 }
                             }
                         }
                 ) {
-                    //Todo eso eran los modificadores de la  caja que contiene la tarjeta, eso es lo que se mueve, ahora cargamos la tarjeta y le pasamos la peli actual
+
                     MovieCard(
                         movie = uiState.movieDetail!!,
-                        isFavorite = uiState.isFavorite,      // <-- Pasa el estado isFavorite
-                        isSeen = uiState.isSeen,            // <-- Pasa el estado isSeen
+                        isFavorite = uiState.isFavorite,
+                        isSeen = uiState.isSeen,
                         onFavoriteClick = {
-                            viewModel.toggleFavorite()      // <-- Llama a la función toggle del VM
+                            viewModel.toggleFavorite()
                         },
                         onSeenClick = {
-                            viewModel.toggleSeen()          // <-- Llama a la función toggle del VM
+                            viewModel.toggleSeen()
                         },
-                        playWhenReady = true                // Asume que el vídeo se reproduce
+                        playWhenReady = true
                     )
                 }
             }
 
             uiState.seriesDetail != null -> {
                 Box(
-                    //Aquí se modifica el movimiento, se redondea nuestra variable del eje X (offsetX), y también podemos definir el eje Y.
+
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight()
                         .fillMaxSize()
                         .offset { IntOffset(offSetX.value.roundToInt(), 0) }
-                        //Con esto modificamos los ejes de la animación, por ejemplo rotación sobre eje Z, o escalado.
                         .graphicsLayer {
                             rotationZ = offSetX.value / 30f
 
-                            //Esto ajusta el eje sobre el que la tarjeta gira
                             transformOrigin = TransformOrigin(0.5f, 0.5f)
-                            //Esto hace que se vuelva más pequeña según sale de la pantalla, tenemos que ver si queremos dejarlo.
-                            //Ponemos esta fórmula para que se adapte a la anchura del terminal en el que esté, screenWidth siempre será un valor cambiante dependiendo del dispositivo.
-                            //Y OffSt value también cambia porque nos está indicando la posición de la tarjeta.
+
                             scaleX = 1f - (abs(offSetX.value) / (screenWidth.value * 6))
                             scaleY = 1f - (abs(offSetX.value) / (screenWidth.value * 6))
 
-                            // Podríamos hasta hacer que rote sobre sí misma, pero creo que quedaba mal. Puedes descomentar, correr la app y probar, a ver qué opinas.
-                            // rotationY = (offSetX.value / screenWidth.value) * 10f
                         }
-                        //esto permite escuchar el comportamiento del pointer, que en este caso son los gestos del usuario, y dentro definimos cómo actuará en consecuencia
-                        .pointerInput(itemId) {
-                            //Esto detecta movimientos horizontales
-                            detectHorizontalDragGestures(
-                                //Accion al empezar
-                                onDragStart = {},
-                                //Accion al terminar, aquí va la lógica si la carta se va o se queda
-// Dentro de .pointerInput(itemId) { detectHorizontalDragGestures( ... ) }
 
+                        .pointerInput(itemId) {
+                            detectHorizontalDragGestures(
+
+                                onDragStart = {},
                                 onDragEnd = {
                                     val final = offSetX.value
-                                    // Comprobar si hemos pasado el límite (en cualquier dirección)
                                     if (abs(final) > limit.value) {
-                                        // Sí, hemos deslizado lo suficiente. Animamos hacia fuera y luego navegamos atrás.
                                         val target =
-                                            if (final > 0) exit else -exit // Hacia dónde animar (fuera de pantalla)
+                                            if (final > 0) exit else -exit
 
                                         scope.launch {
                                             offSetX.animateTo(
                                                 targetValue = target,
-                                                animationSpec = tween(durationMillis = 300) // Duración animación salida
-                                            ) { // Este bloque se ejecuta al COMPLETAR la animación
-                                                onNavigateBack() // Llama a la función para volver atrás
+                                                animationSpec = tween(durationMillis = 300)
+                                            ) {
+                                                onNavigateBack()
                                             }
-                                            // No es necesario hacer snapTo(0f) aquí porque ya hemos navegado fuera
                                         }
                                     } else {
-                                        // No, no hemos deslizado lo suficiente. Volvemos al centro.
                                         scope.launch {
                                             offSetX.animateTo(
                                                 targetValue = 0f,
-                                                animationSpec = tween(durationMillis = 300) // Duración animación retorno
+                                                animationSpec = tween(durationMillis = 300)
                                             )
                                         }
                                     }
                                 }
-// El resto de detectHorizontalDragGestures (onDragStart y el bloque lambda final) se quedan como estaban.
+
                             ) { change, dragAmount ->
-                                println("Dragging, OffsetX: ${offSetX.value}")
-                                //Esto es para que no reaccione a otros gestos
                                 change.consume()
-                                //Esto hace que siga al dedo
                                 scope.launch {
                                     offSetX.snapTo(offSetX.value + dragAmount)
                                 }
                             }
                         }
                 ) {
-                    //Todo eso eran los modificadores de la  caja que contiene la tarjeta, eso es lo que se mueve, ahora cargamos la tarjeta y le pasamos la peli actual
-                    SeriesCard( // IMPORTANTE: Asegúrate que SeriesCard.kt también fue modificado como MovieCard.kt
+
+                    SeriesCard(
                         series = uiState.seriesDetail!!,
-                        isFavorite = uiState.isFavorite,      // <-- Pasa el estado isFavorite
-                        isSeen = uiState.isSeen,            // <-- Pasa el estado isSeen
+                        isFavorite = uiState.isFavorite,
+                        isSeen = uiState.isSeen,
                         onFavoriteClick = {
-                            viewModel.toggleFavorite()      // <-- Llama a la función toggle del VM
+                            viewModel.toggleFavorite()
                         },
                         onSeenClick = {
-                            viewModel.toggleSeen()          // <-- Llama a la función toggle del VM
+                            viewModel.toggleSeen()
                         },
-                        playWhenReady = true                // Asume que el vídeo se reproduce
+                        playWhenReady = true
                     )
                 }
             }
@@ -238,7 +200,5 @@ fun DetailScreen(
                 Text("No se encontraron detalles.")
             }
         }
-        // Podrías añadir un botón flotante o en una TopAppBar para volver atrás
-        // FloatingActionButton(onClick = onNavigateBack) { Icon(Icons.Default.ArrowBack, "") }
     }
 }

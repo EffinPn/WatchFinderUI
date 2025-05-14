@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.watchfinder.app-mergeDebugResources-63:/values-es-rUS/values-es-rUS.xml",
+            "outputFile": "com.example.watchfinder.app-mergeDebugResources-66:/values-es-rUS/values-es-rUS.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Wired\\.gradle\\caches\\8.10.2\\transforms\\e1d67fe45acdb5cbefdc7f7aec65c521\\transformed\\media3-exoplayer-1.6.1\\res\\values-es-rUS\\values-es-rUS.xml",

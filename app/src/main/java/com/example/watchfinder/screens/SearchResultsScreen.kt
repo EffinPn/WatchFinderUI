@@ -1,4 +1,3 @@
-// WF/watchfinderAndroid/screens/SearchResultsScreen.kt
 package com.example.watchfinder.screens
 
 import androidx.compose.foundation.layout.*
@@ -15,15 +14,15 @@ import androidx.compose.ui.unit.dp
 import com.example.watchfinder.data.dto.MovieCard
 import com.example.watchfinder.data.dto.SeriesCard
 
-@OptIn(ExperimentalMaterial3Api::class) // Necesario para TopAppBar
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchResultsScreen(
-    resultsMovies: List<MovieCard>, // Recibe la lista de películas
-    resultsSeries: List<SeriesCard>, // Recibe la lista de series
-    onNavigateBack: () -> Unit, // Lambda para volver atrás
-    onNavigateToDetail: (itemType: String, itemId: String) -> Unit // Lambda para ir a detalles
+    resultsMovies: List<MovieCard>,
+    resultsSeries: List<SeriesCard>,
+    onNavigateBack: () -> Unit,
+    onNavigateToDetail: (itemType: String, itemId: String) -> Unit
 ) {
-    val combinedResults = resultsMovies + resultsSeries // Combina las listas
+    val combinedResults = resultsMovies + resultsSeries
 
     Scaffold(
         topBar = {
@@ -37,7 +36,6 @@ fun SearchResultsScreen(
                         )
                     }
                 },
-                // Puedes añadir colores si tu tema no los define bien
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -49,8 +47,8 @@ fun SearchResultsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues) // Aplica el padding del Scaffold
-                .padding(horizontal = 16.dp) // Padding adicional si es necesario
+                .padding(paddingValues)
+                .padding(horizontal = 16.dp)
         ) {
             if (combinedResults.isEmpty()) {
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -66,15 +64,15 @@ fun SearchResultsScreen(
                 ) {
                     items(combinedResults) { item ->
                         when (item) {
-                            is MovieCard -> SearchResultItem( // Reutiliza tu Composable existente
+                            is MovieCard -> SearchResultItem(
                                 title = item.Title,
                                 posterPath = item.Poster,
-                                onClick = { onNavigateToDetail("movie", item._id) } // Pasa tipo y ID
+                                onClick = { onNavigateToDetail("movie", item._id) }
                             )
-                            is SeriesCard -> SearchResultItem( // Reutiliza tu Composable existente
+                            is SeriesCard -> SearchResultItem(
                                 title = item.Title,
                                 posterPath = item.Poster,
-                                onClick = { onNavigateToDetail("series", item._id) } // Pasa tipo y ID
+                                onClick = { onNavigateToDetail("series", item._id) }
                             )
                         }
                     }
@@ -83,6 +81,3 @@ fun SearchResultsScreen(
         }
     }
 }
-
-// Nota: Asegúrate de que SearchResultItem (de Search.kt) sea accesible aquí
-// o muévelo a un paquete común si es necesario.
